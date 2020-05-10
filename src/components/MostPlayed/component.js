@@ -11,20 +11,8 @@ const MostPlayed = ({fetchMostPlayed, token, songs}) => {
         };
     handleBrowseClick()
     const render = (items) => {
-        return items.map((item, i) => {
-            return (
-                
-            <li
-            key={item.key}
-            >
-                {item.name}
-                
-                {item.genres && item.genres.map((genre,i)=>{
-                console.log(i)
-                return(<ul key={i}>{genre}</ul>)})}
-              
-            </li>
-            );
+        return items.map((item) => {
+            return(<li key={item.id}> {item.name} {item.genres && item.genres.map((genre,i)=><ul key={item.id+genre+i}>{genre}</ul>)}</li>)
           });
     }
     return (
