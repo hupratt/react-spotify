@@ -20,11 +20,12 @@ const MainView = ({ headerTitle, audioControl, resumeSong, pauseSong }) => {
         <MostPlayed />
       ) : (
         //anything else show SongList
-        <SongList
-          resumeSong={resumeSong}
-          pauseSong={pauseSong}
-          audioControl={audioControl}
-        />
+        <MostPlayed />
+        // <SongList
+        //   resumeSong={resumeSong}
+        //   pauseSong={pauseSong}
+        //   audioControl={audioControl}
+        // />
       )}
     </React.Fragment>
   );

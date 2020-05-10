@@ -5,38 +5,39 @@ import "./MostPlayed.css";
 
 
 
-const MostPlayed = ({fetchMostPlayed, updateHeaderTitle, updateViewType, token, songs}) => {
+const MostPlayed = ({fetchMostPlayed, token, songs}) => {
     const handleBrowseClick = () => {
         fetchMostPlayed(token)
         };
     handleBrowseClick()
     const render = (items) => {
-        return items.map(item => {
+        return items.map((item, i) => {
             return (
-              <li
-                key={item.key}
-              >
-                {item.name} 
+                
+            <li
+            key={item.key}
+            >
+                {item.name}
+                
+                {item.genres && item.genres.map((genre,i)=>{
+                console.log(i)
+                return(<ul key={i}>{genre}</ul>)})}
               
-              
-                {console.log(item.genres)}
-          </li>
+            </li>
             );
           });
     }
     return (
     <React.Fragment>
         {songs ? (render(songs)):(<button/>)}
-        
     </React.Fragment>
     );
 };
 
-// MostPlayed.propTypes = {
-//   headerTitle: PropTypes.string,
-//   audioControl: PropTypes.func,
-//   resumeSong: PropTypes.func,
-//   pauseSong: PropTypes.func
-// };
+MostPlayed.propTypes = {
+    token: PropTypes.string,
+    songs: PropTypes.array,
+    fetchMostPlayed: PropTypes.func,
+};
 
 export default MostPlayed;
