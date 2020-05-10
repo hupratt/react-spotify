@@ -112,6 +112,12 @@ export const fetchRecentlyPlayedSuccess = (songs) => {
     songs
   };
 };
+export const fetchMostPlayedSuccess = (songs) => {
+  return {
+    type: 'FETCH_MOST_PLAYED_SUCCESS',
+    songs
+  };
+};
 
 export const fetchRecentlyPlayedError = () => {
   return {
@@ -179,5 +185,22 @@ export const updateViewType = (view) => {
   return {
     type: 'UPDATE_VIEW_TYPE',
     view
+  };
+};
+
+
+export const fetchMostPlayed = (accessToken) => {
+  return dispatch => {
+    const request = new Request(`https://api.spotify.com/v1/me/top/artists`, {
+      headers: new Headers({
+        'Authorization': 'Bearer ' + accessToken
+      })
+    });
+
+    fetch(request)
+    .then(res => res.json())
+    // .then(res => console.log(res))
+    .then(res => dispatch(fetchMostPlayedSuccess(res.items)))
+    .catch(err => dispatch(fetchRecentlyPlayedError(err)));
   };
 };

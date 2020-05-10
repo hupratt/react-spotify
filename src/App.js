@@ -30,6 +30,9 @@ class App extends Component {
     while ((e = r.exec(q))) {
       hashParams[e[1]] = decodeURIComponent(e[2]);
     }
+    // access_token: "BQ(..))"
+    // expires_in: "3600"
+    // token_type: "Bearer"
 
     if (!hashParams.access_token) {
       window.location.href =

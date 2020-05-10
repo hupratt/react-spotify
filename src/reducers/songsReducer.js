@@ -11,6 +11,11 @@ export const songsReducer = (state = defaultState, action) => {
 
   switch (action.type) {
 
+  case "FETCH_MOST_PLAYED_SUCCESS":
+    return {
+      ...state,
+      songs: action.songs,
+    };
   case "UPDATE_VIEW_TYPE":
     return {
       ...state,

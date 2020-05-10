@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./SideMenu.css";
+import { fetchMostPlayed } from "../../actions/songActions";
 
 const SideMenu = ({
   updateHeaderTitle,
@@ -43,6 +44,10 @@ const SideMenu = ({
         name: "Artists",
         action: fetchArtists,
         getArtists: true
+      },
+      {
+        name: "Top Songs",
+        action: fetchMostPlayed,
       }
     ];
 

@@ -4,6 +4,7 @@ import SongList from "../SongList";
 import AlbumList from "../AlbumList";
 import ArtistList from "../ArtistList";
 import BrowseView from "../BrowseView";
+import MostPlayed from "../MostPlayed";
 import "./MainView.css";
 
 const MainView = ({ headerTitle, audioControl, resumeSong, pauseSong }) => {
@@ -15,6 +16,8 @@ const MainView = ({ headerTitle, audioControl, resumeSong, pauseSong }) => {
         <ArtistList />
       ) : headerTitle === "Browse" ? (
         <BrowseView />
+      )  : headerTitle === "Top Songs" ? (
+        <MostPlayed />
       ) : (
         //anything else show SongList
         <SongList
